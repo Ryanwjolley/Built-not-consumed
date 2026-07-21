@@ -174,6 +174,9 @@ h2.display { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 18px; max-width:
 /* ---------- COACH PHOTO BAND ---------- */
 .band { position: relative; aspect-ratio: 24 / 9; overflow: hidden; border-bottom: 1px solid var(--ink); }
 .band img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.2) brightness(0.85); }
+/* opening barbell shot is already dark & monochrome — lighten so it doesn't crush */
+.band-opening img { filter: grayscale(1) contrast(1.08) brightness(1.02); }
+.band-opening::after { background: linear-gradient(0deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.15) 45%, rgba(10,10,10,0.2) 100%); }
 .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.25) 60%, rgba(10,10,10,0.35) 100%); }
 .band-caption {
   position: absolute; left: 0; bottom: 0; z-index: 1; color: var(--paper);
