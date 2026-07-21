@@ -91,14 +91,10 @@ a { color: inherit; }
   background: var(--stamp); transform: rotate(-1.5deg);
 }
 .hero-sub {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-  border-top: 1px solid var(--ink); margin-top: 56px;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px 32px;
+  border-top: 1px solid var(--ink); margin-top: 56px; padding: 28px 0 40px;
 }
-.hero-sub p { padding: 32px 0 44px; font-size: 1.3rem; line-height: 1.5; max-width: 42ch; }
-.hero-sub .hero-cta-cell {
-  border-left: 1px solid var(--ink); padding: 32px 0 44px 40px;
-  display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px;
-}
+.hero-sub-label { color: var(--gray); }
 
 .btn {
   display: inline-block; background: var(--ink); color: var(--paper);
@@ -174,9 +170,15 @@ h2.display { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 18px; max-width:
 /* ---------- COACH PHOTO BAND ---------- */
 .band { position: relative; aspect-ratio: 24 / 9; overflow: hidden; border-bottom: 1px solid var(--ink); }
 .band img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(1) contrast(1.2) brightness(0.85); }
-/* opening barbell shot is already dark & monochrome — lighten so it doesn't crush */
+/* opening barbell shot carries the hero's supporting line as its overlay */
+.band-opening { aspect-ratio: 21 / 9; }
 .band-opening img { filter: grayscale(1) contrast(1.08) brightness(1.02); }
-.band-opening::after { background: linear-gradient(0deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.15) 45%, rgba(10,10,10,0.2) 100%); }
+.band-opening::after { background: linear-gradient(75deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.55) 34%, rgba(10,10,10,0.1) 62%, rgba(10,10,10,0.12) 100%); }
+.band-opening .band-caption { max-width: 40ch; padding: 56px; }
+.band-opening .band-caption p {
+  font-family: 'Barlow', sans-serif; font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.85rem); line-height: 1.35; color: var(--paper);
+}
 .band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.72) 0%, rgba(10,10,10,0.25) 60%, rgba(10,10,10,0.35) 100%); }
 .band-caption {
   position: absolute; left: 0; bottom: 0; z-index: 1; color: var(--paper);
@@ -286,12 +288,11 @@ footer .tagline { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 820px) {
   section { padding: 68px 0; }
-  .hero-sub { grid-template-columns: 1fr; }
-  .hero-sub .hero-cta-cell { border-left: none; border-top: 1px solid var(--ink); padding: 32px 0 40px; }
   .lane-inner { grid-template-columns: 1fr; gap: 22px; }
   .why-grid { grid-template-columns: 1fr; gap: 40px; }
   .band { aspect-ratio: 3 / 4; }
   .band-caption { padding: 32px; }
+  .band-opening .band-caption { padding: 32px; }
   .learn-item { grid-template-columns: 64px 1fr; gap: 18px; }
   .learn-item.parents { margin: 0 -28px; padding: 30px 28px; }
   .learn-grid { grid-template-columns: 1fr; gap: 28px; }
