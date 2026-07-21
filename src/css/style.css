@@ -126,7 +126,7 @@ h2.display { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 18px; max-width:
   font-family: 'Anton', sans-serif; text-transform: uppercase;
   font-size: clamp(2.2rem, 4vw, 3.4rem); display: block; margin-bottom: 8px; line-height: 1;
 }
-.fork-col .verdict { margin-bottom: 32px; }
+.fork-col .verdict { display: block; margin-bottom: 32px; }
 .fork-col p.body { font-size: 1.2rem; line-height: 1.55; max-width: 40ch; }
 /* left: consumed — white on black */
 .fork-consumed { background: var(--ink); color: var(--paper); }
