@@ -174,7 +174,10 @@ h2.display { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 18px; max-width:
 
 /* ---------- LEARN ---------- */
 .learn { border-bottom: 1px solid var(--ink); }
-.learn-list { margin-top: 40px; border-top: 1px solid var(--hair); }
+.learn-grid { display: grid; grid-template-columns: 1fr 320px; gap: 48px; align-items: start; margin-top: 40px; }
+.learn-list { border-top: 1px solid var(--hair); }
+.learn-photo { border: 1px solid var(--ink); }
+.learn-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; filter: grayscale(1) contrast(1.2) brightness(0.9); }
 .learn-item {
   display: grid; grid-template-columns: 96px 1fr; gap: 28px; padding: 30px 0;
   border-bottom: 1px solid var(--hair); align-items: center;
@@ -269,6 +272,8 @@ footer .tagline { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; 
   .band-caption { padding: 32px; }
   .learn-item { grid-template-columns: 64px 1fr; gap: 18px; }
   .learn-item.parents { margin: 0 -28px; padding: 30px 28px; }
+  .learn-grid { grid-template-columns: 1fr; gap: 28px; }
+  .learn-photo { max-width: 320px; }
   .signup-form { flex-direction: column; }
   .signup-form button { padding: 16px; }
 }
