@@ -1,0 +1,16 @@
+---
+layout: base.njk
+---
+<header class="lesson-header">
+  <div class="wrap">
+    <span class="mono">{{ date | date }}</span>
+    <h1 class="display">{{ title }}</h1>
+  </div>
+</header>
+
+<article class="wrap">
+  <div class="lesson-body">
+    {{ content | safe }}
+    <p style="margin-top:48px"><a class="lesson-back" href="/lessons/">&larr; All lessons</a></p>
+  </div>
+</article>

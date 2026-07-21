@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: "Lessons — Built Not Consumed"
+description: "Practical lessons on using AI to build, not to be consumed by it."
+---
+
+<header class="page-hero">
+  <div class="wrap">
+    <span class="mono">The playbook</span>
+    <h1 class="display">Lessons</h1>
+  </div>
+</header>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    {% if collections.lessons.length > 0 %}
+    <div class="lesson-grid">
+      {% for lesson in collections.lessons %}
+      <a class="lesson-card" href="{{ lesson.url }}">
+        <span class="mono">{{ lesson.data.date | date }}</span>
+        <h3>{{ lesson.data.title }}</h3>
+        <p>{{ lesson.data.summary }}</p>
+        <span class="read">Read &rarr;</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-state">First lessons are coming soon. <a href="/#signup">Get on the list</a> to catch them the moment they're live.</p>
+    {% endif %}
+  </div>
+</section>

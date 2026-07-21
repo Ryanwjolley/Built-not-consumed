@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title or "Built Not Consumed" }}</title>
+<meta name="description" content="{{ description or 'Nobody gets stronger watching other people lift. Built Not Consumed teaches young men to use AI the way an athlete uses a weight room — as a place to do the work, not skip it.' }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Built<span class="slash">/</span>Not Consumed</a>
+    <nav class="site-nav">
+      <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+      <a href="/lessons/" {% if page.url == "/lessons/" %}aria-current="page"{% endif %}>Lessons</a>
+      <a class="nav-cta" href="/#signup">Join</a>
+    </nav>
+  </div>
+</header>
+
+{{ content | safe }}
+
+<footer>
+  <div class="wrap">
+    <span class="brand">Built<span class="slash">/</span>Not Consumed</span>
+    <span class="tagline">Do the work. Use the tools. Don't become one.</span>
+  </div>
+</footer>
+
+</body>
+</html>

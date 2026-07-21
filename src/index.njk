@@ -1,0 +1,130 @@
+---
+layout: base.njk
+title: "Built Not Consumed — Teach young men to build with AI"
+description: "Nobody gets stronger watching other people lift. Built Not Consumed teaches young men to use AI the way an athlete uses a weight room — as a place to do the work, not skip it."
+---
+
+<header class="hero">
+  <div class="wrap">
+    <span class="hero-label mono">For young men &amp; the parents raising them</span>
+    <h1 class="display">
+      <span class="line">AI will</span>
+      <span class="line">work <span class="strike">on you</span></span>
+      <span class="line">or for you.</span>
+    </h1>
+    <div class="hero-sub">
+      <p>Nobody gets stronger watching other people lift. This is where young men learn to use AI the way an athlete uses a weight room — as a place to do the work, not skip it.</p>
+      <div class="hero-cta-cell">
+        <span class="mono" style="color:var(--gray)">One choice. Two outcomes.</span>
+        <a class="btn" href="#signup">Join the team</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="fork">
+  <div class="fork-grid">
+    <div class="fork-col fork-consumed">
+      <span class="tag">Consumed</span>
+      <span class="verdict mono">On the bench</span>
+      <p class="body">He lets AI do his homework, write his words, think his thoughts. It feels like winning. Every rep he skips makes him weaker — and he doesn't even know he's sitting out.</p>
+    </div>
+    <div class="fork-col fork-built">
+      <span class="tag">Built</span>
+      <span class="verdict mono">In the game</span>
+      <p class="body">He puts in the work, then uses AI to train harder. He learns faster. He builds things he couldn't build alone. Same tool — used like a coach, not a substitute.</p>
+    </div>
+  </div>
+  <div class="fork-verdict-bar">
+    The tool doesn't decide which one you become. <span class="hl">You do.</span>
+  </div>
+</section>
+
+<div class="band">
+  <img src="https://images.pexels.com/photos/6767350/pexels-photo-6767350.jpeg?auto=compress&cs=tinysrgb&w=1920" alt="A coach guiding a young athlete one-on-one, hand on shoulder">
+  <div class="band-caption">
+    <span class="mono">Why it matters</span>
+    <span class="big">Every young man needs someone in his corner at the right moment.</span>
+  </div>
+</div>
+
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">01</span>
+      <span class="section-label mono">Why listen to me</span>
+    </div>
+    <h2 class="display">Engineer. Business owner. But this one's personal.</h2>
+    <div class="why-grid">
+      <div class="lead">
+        <p>By trade, I'm a part-owner of a civil engineering firm. We build what rural towns run on — water systems and roads. I've led our company's push into AI, building tools that do real work with real consequences. I use these tools every day. I know what they can do.</p>
+        <p>But the reason this site exists is the other 20 years. I've coached young men and led them in my church for more than two decades. I've seen what one good coach at the right moment does for a kid — and what happens when nobody shows up.</p>
+      </div>
+      <p class="pull">AI is that moment. Somebody needs to stand at the fork in the road and point toward the work. <span class="hl">That's what this is.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="learn">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">02</span>
+      <span class="section-label mono">What you'll learn</span>
+    </div>
+    <h2 class="display">Practical, not preachy.</h2>
+    <div class="learn-list">
+      <div class="learn-item">
+        <span class="tally">||||</span>
+        <p>Use AI to learn faster — without skipping the reps that make you good.</p>
+      </div>
+      <div class="learn-item">
+        <span class="tally">||||</span>
+        <p>Build real things with AI: apps, tools, projects, a business.</p>
+      </div>
+      <div class="learn-item">
+        <span class="tally">||||</span>
+        <p>The daily habits that separate builders from consumers.</p>
+      </div>
+      <div class="learn-item parents">
+        <span class="tally">||||</span>
+        <p><strong>For parents:</strong> what to watch for, and how to point your son toward the work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="signup" id="signup">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">03</span>
+      <span class="section-label mono">Get in early</span>
+    </div>
+    <h2 class="display">Show up first.</h2>
+    <p class="lede">Built Not Consumed is just getting started. Drop your email and you'll get the first lessons, tools, and challenges as they're built. No spam. No noise.</p>
+    <form class="signup-form" name="signup" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="signupForm">
+      <input type="hidden" name="form-name" value="signup">
+      <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <input type="email" name="email" placeholder="Your email address" required aria-label="Email address">
+      <button type="submit">Count me in</button>
+    </form>
+    <p class="form-note">One email when something worth your time is ready. That's it.</p>
+    <div class="form-success" id="formSuccess">You're in. Watch your inbox.</div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('signupForm');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(data).toString()
+    }).then(function () {
+      form.style.display = 'none';
+      document.querySelector('.form-note').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    }).catch(function () { form.submit(); });
+  });
+</script>
