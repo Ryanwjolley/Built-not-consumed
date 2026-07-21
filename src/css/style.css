@@ -120,27 +120,48 @@ h2.display { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 18px; max-width:
 
 /* ---------- FORK (the signature inversion) ---------- */
 .fork { padding: 0; border-bottom: 1px solid var(--ink); }
-.fork-grid { display: grid; grid-template-columns: 1fr 1fr; }
-.fork-col { padding: 72px 48px 80px; }
-.fork-col .tag {
+
+/* section eyebrow — frames the two lanes as one composition */
+.fork-head { background: var(--paper); border-bottom: 1px solid var(--ink); padding: 26px 0; }
+.fork-head .mono { color: var(--gray); display: inline-flex; align-items: center; }
+.fork-head .mono::before {
+  content: ""; width: 30px; height: 2px; background: var(--stamp);
+  margin-right: 16px; flex: none;
+}
+
+/* two full-bleed lanes share one internal grid so the big words lock to a common axis */
+.lane-inner {
+  max-width: 1120px; margin: 0 auto;
+  padding: clamp(56px, 8vw, 96px) 28px;
+  display: grid;
+  grid-template-columns: minmax(240px, 34%) 1fr;
+  gap: clamp(32px, 6vw, 80px);
+  align-items: center;
+}
+.lane-label { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.lane .tag {
   font-family: 'Anton', sans-serif; text-transform: uppercase;
-  font-size: clamp(2.2rem, 4vw, 3.4rem); display: block; margin-bottom: 8px; line-height: 1;
+  font-size: clamp(2.4rem, 5vw, 4rem); line-height: 0.94; letter-spacing: 0.005em;
 }
-.fork-col .verdict { display: block; margin-bottom: 32px; }
-.fork-col p.body { font-size: 1.2rem; line-height: 1.55; max-width: 40ch; }
-/* left: consumed — white on black */
-.fork-consumed { background: var(--ink); color: var(--paper); }
-.fork-consumed .tag { color: #fff; }
-.fork-consumed .verdict { color: var(--gray-light); }
-.fork-consumed .tag { position: relative; display: inline-block; }
-.fork-consumed .tag::after {
-  content: ""; position: absolute; left: -2%; right: -2%; top: 52%; height: 4px;
-  background: var(--stamp); transform: rotate(-2deg);
+.lane .verdict { display: block; }
+.lane .verdict::before { color: var(--stamp); margin-right: 6px; }
+.lane .body { font-size: clamp(1.15rem, 1.5vw, 1.35rem); line-height: 1.5; max-width: 46ch; }
+
+/* consumed — white on black, word struck through */
+.lane-consumed { background: var(--ink); color: var(--paper); }
+.lane-consumed .tag { color: #fff; position: relative; display: inline-block; }
+.lane-consumed .tag::after {
+  content: ""; position: absolute; left: -3%; right: -3%; top: 54%; height: 5px;
+  background: var(--stamp); transform: rotate(-2.2deg);
 }
-.fork-consumed p.body { color: #cfcfca; }
-/* right: built — black on white */
-.fork-built { background: var(--paper); color: var(--ink); border-left: 1px solid var(--ink); }
-.fork-built .verdict { color: var(--stamp); }
+.lane-consumed .verdict { color: var(--gray-light); }
+.lane-consumed .verdict::before { content: "\2193"; }
+.lane-consumed .body { color: #cfcfca; }
+
+/* built — black on white; red seam pivots the two lanes together */
+.lane-built { background: var(--paper); color: var(--ink); border-top: 4px solid var(--stamp); }
+.lane-built .verdict { color: var(--stamp); }
+.lane-built .verdict::before { content: "\2191"; }
 
 .fork-verdict-bar {
   border-top: 1px solid var(--ink);
@@ -264,9 +285,7 @@ footer .tagline { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; 
   section { padding: 68px 0; }
   .hero-sub { grid-template-columns: 1fr; }
   .hero-sub .hero-cta-cell { border-left: none; border-top: 1px solid var(--ink); padding: 32px 0 40px; }
-  .fork-grid { grid-template-columns: 1fr; }
-  .fork-built { border-left: none; border-top: 1px solid var(--ink); }
-  .fork-col { padding: 52px 32px 60px; }
+  .lane-inner { grid-template-columns: 1fr; gap: 22px; }
   .why-grid { grid-template-columns: 1fr; gap: 40px; }
   .band { aspect-ratio: 3 / 4; }
   .band-caption { padding: 32px; }
