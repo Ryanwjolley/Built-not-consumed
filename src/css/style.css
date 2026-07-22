@@ -218,6 +218,35 @@ h2.display { font-size: clamp(2.2rem, 5vw, 3.6rem); margin-top: 18px; max-width:
 .learn-item.parents .tally { color: #fff; }
 .learn-item.parents p strong { color: var(--stamp); }
 
+/* ---------- LOGO BAND ---------- */
+.logo-band {
+  background: #151515; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+  display: flex; justify-content: center; padding: 64px 28px;
+}
+.logo-band img { display: block; width: 100%; max-width: 560px; height: auto; }
+
+/* ---------- BUILD (what you'll ship) ---------- */
+.build { background: var(--ink); color: var(--paper); border-bottom: 1px solid var(--ink); }
+.build .section-label { color: var(--gray-light); }
+.build h2.display { color: var(--paper); }
+.build .lede { max-width: 56ch; margin-top: 20px; font-size: 1.2rem; color: #cfcfca; }
+.build-grid {
+  margin-top: 52px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+}
+.build-card {
+  border: 1px solid #2b2b2b; background: #141414; padding: 30px 28px 34px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+  transition: border-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
+}
+.build-card:hover { border-color: var(--stamp); background: #171717; transform: translateY(-3px); }
+.build-card .icon { color: var(--stamp); line-height: 0; }
+.build-card .icon svg { width: 44px; height: 44px; display: block; }
+.build-card h3 {
+  font-family: 'Anton', sans-serif; text-transform: uppercase;
+  font-size: 1.5rem; line-height: 1; letter-spacing: 0.01em;
+}
+.build-card p { font-size: 1rem; line-height: 1.45; color: #b6b6b1; max-width: 30ch; }
+
 /* ---------- SIGNUP ---------- */
 .signup { background: var(--ink); color: var(--paper); border-bottom: none; }
 .signup .section-label { color: var(--gray-light); }
@@ -297,6 +326,12 @@ footer .tagline { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; 
   .learn-item.parents { margin: 0 -28px; padding: 30px 28px; }
   .learn-grid { grid-template-columns: 1fr; gap: 28px; }
   .learn-photo { max-width: 320px; }
+  .build-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .logo-band { padding: 48px 24px; }
   .signup-form { flex-direction: column; }
   .signup-form button { padding: 16px; }
+}
+
+@media (max-width: 520px) {
+  .build-grid { grid-template-columns: 1fr; }
 }
