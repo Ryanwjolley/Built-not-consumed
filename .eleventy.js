@@ -2,9 +2,6 @@ module.exports = function (eleventyConfig) {
   // Copy CSS straight through to the output folder
   eleventyConfig.addPassthroughCopy("src/css");
 
-  // Copy images (logo, etc.) straight through to the output folder
-  eleventyConfig.addPassthroughCopy("src/img");
-
   // {{ myDate | date }} -> "July 20, 2026"
   eleventyConfig.addFilter("date", function (value) {
     const d = new Date(value);
